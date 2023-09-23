@@ -20,7 +20,7 @@ class ApiFeatures {
 
     filter(){
         const queryCopy = {...this.queryStr };
-        const removeElements = ["keyword","pages","limit"]
+        const removeElements = ["keyword","page","limit"]
 
         removeElements.forEach((key=>{
             delete queryCopy[key]
@@ -42,7 +42,7 @@ class ApiFeatures {
     pagination(resultsPerPage){
         const currentPage = this.queryStr.page || 1 ;
         console.log(currentPage)
-        const skip = resultsPerPage * (currentPage - 1 ) ;
+        const skip = resultsPerPage * (currentPage - 1 );
         console.log(skip)
          this.query = this.query.limit(resultsPerPage).skip(skip);
         return this;

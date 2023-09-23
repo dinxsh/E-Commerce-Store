@@ -5,6 +5,7 @@ const ApiFeatures = require("../utils/ApiFeatures.js");
 //Create Product--Admin
 const createProduct =  async (req,res,next) => {
     try {
+        req.body.user = req.user.id
         const product = await Product.create(req.body);
         res.status(200).json({
             sucess:"true",
@@ -80,4 +81,97 @@ const DeleteProduct = async(req,res)=>{
     })
 }
 
-module.exports = {getAllProducts,createProduct,updateProduct,DeleteProduct,getProduct}
+//create New Review or Update the review
+const Review = async(req,res)=>{
+    const {rating,comment,productID} = req.body
+    const review ={ 
+        user:req.user._id,
+        name:req.user.name,
+        rating:Number(rating),
+        comment,
+    }
+    const product = await Product.findById(productID)
+    console.log(req.user._id)
+    const isReviewed = product.reviews.find((data) => data.user.toString() === req.user._id.toString())
+    if (isReviewed) {
+        product.reviews.forEach((data)=>{
+            if (data.user.toString() === req.user._id.toString()) {
+                product.reviews.forEach((data) => {
+                    data.rating = rating,
+                    data.comment = comment                      
+                })
+            }   
+        })
+    }
+    else {
+        product.reviews.push(review);
+        product.numofReviews = product.reviews.length
+    }
+    let avg = 0;
+    
+    product.reviews.forEach(rev=>{    //calcuating rating of the rating of the product
+        avg+=rev.rating 
+    })
+
+    product.ratings = avg/product.reviews.length
+
+    await product.save({validateBeforeSave: false});
+    res.status(200).json({
+        sucess:true,
+        message:"updated sucessfully"
+    })
+}
+
+const getAllReviews = async(req,res)=>{
+    const product = await Product.findById(req.query.id)
+    if(!product){
+        return res.json({
+            sucess:false,
+            message:"Product not found"
+        })
+    }
+    res.status(200).json({
+        sucess:true,
+        review:product.reviews 
+    })
+}
+
+
+const DeleteReview = async(req,res)=>{
+    const product = await Product.findById(req.query.productID)
+    if(!product){
+        return res.json({
+            sucess:false,
+            message:"Product not found"
+        })
+    }
+
+    const reviews = product.reviews.filter((rev)=> rev._id.toString() !== req.query.id.toString())
+
+    let avg = 0;
+    
+    reviews.forEach(rev=>{    //calcuating rating of the rating of the product
+        avg+=rev.rating 
+    })
+
+    const ratings = avg/reviews.length
+    const numofReviews = reviews.length
+
+    await Product.findByIdAndUpdate(req.query.productID,{
+        reviews,
+        ratings,
+        numofReviews
+    },{
+        new:true,
+        runValidators:true,
+        useFindandModify : false
+    })
+
+    res.status(200).json({
+        sucess:true,
+        Message:"Done successfully"
+    })
+}
+
+module.exports = {getAllProducts,createProduct,updateProduct,DeleteProduct
+                 ,getProduct,Review,getAllReviews,DeleteReview} 
