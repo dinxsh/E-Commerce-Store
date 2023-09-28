@@ -7,7 +7,7 @@ process.on("uncaughtException",(err)=>{
     process.exit(1)
 })
 
-config({path:'./.env'})
+config({path:'./ok.env'}) 
 
 
 const server = app.listen(process.env.PORT,()=>{
