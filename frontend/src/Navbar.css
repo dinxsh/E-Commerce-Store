@@ -1,0 +1,24 @@
+body {
+    overflow-x: hidden;
+}
+
+.navbar{
+    width: 100px;
+    margin: auto;
+    position: absolute;
+    top: 2%;
+    left: 45%;
+}
+
+.LOGO{
+    width: 10vw;
+    cursor: pointer;
+
+}
+
+.hr{
+    width: 100vw;
+    top: 16%;
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.144);
+}

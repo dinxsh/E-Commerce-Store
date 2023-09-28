@@ -1,0 +1,71 @@
+.Footer{
+    width: 100vw;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(26, 26, 26);
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-top: 10vw;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+.playstore{
+    width: 15vw;
+    padding: 2vw;
+}
+
+.mid-footer, .left-footer, .right-footer{
+    padding: 1vw;
+    text-align: center;
+}
+
+.left-footer > p{
+    font-size: 1.4vw;    
+}
+.mid-footer{
+    padding-top: 4vw;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.mid-footer > h1 {
+    font-size: 3vw;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
+
+
+}
+.text{
+    font-size: 1.4vw;
+    font-family: 'Kumbh Sans', sans-serif;
+
+}
+.copy{
+    font-size: 1vw;
+    font-family: monospace;
+    font-family: 'Kumbh Sans', sans-serif;
+
+}
+.cursive{
+    font-size: 1.5vw;
+    font-family: cursive;
+}
+
+.right-footer >p {
+    font-weight: 700;
+    text-decoration: underline;
+    font-size: 1.5vw;
+}
+.right-footer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vw;
+    font-family: 'Kumbh Sans', sans-serif;
+
+
+}
+
+
+.right-footer > a {
+    padding: 0.8vw 2vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+}

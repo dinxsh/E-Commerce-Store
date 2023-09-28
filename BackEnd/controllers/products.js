@@ -32,12 +32,14 @@ const getProduct = async(req,res)=>{
 
 // get all products + also search feature
 const getAllProducts = async (req, res) => {
-    const resultsPerPage = 2;
+    const resultsPerPage = 6;
+    const productCount = await Product.countDocuments();
     const keyword = new ApiFeatures(Product.find(), req.query).search().filter().pagination(resultsPerPage);
     const data = await keyword.query;
     res.status(200).json({
         sucess: true,
-        data
+        data,
+        productCount
     })
 }
 

@@ -1,0 +1,75 @@
+*{
+    scroll-behavior: smooth;
+}
+
+.Home{
+    height: 100vh;
+    overflow: hidden;
+    
+}
+
+.cover{
+    opacity: 96%;
+    margin-top: 6.5vw;
+    width: 100%;
+    background-size: contain;
+    opacity: 100%;
+    background-color: black;
+    border: 1px solid black;
+    height: 80vh;
+    color: white;
+    clip-path: polygon(0 40%, 0 4%, 48% 4%, 86% 99%, 27% 100%);
+
+}
+
+.Home-text{
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: rgb(196, 196, 196);
+}
+.Home-text > h1{
+    position: absolute;
+    color: rgb(255, 254, 254);
+    font-size: 10vw;
+    top: 10vw;
+    left: 7vw;
+    text-shadow: 2px 2px 4px rgb(63, 63, 63);
+}
+
+.Home-text > h3{
+    position: absolute;
+    font-size: 3vw;
+    top: 27vw;
+    left:24vw
+}
+
+.scroll-btn{
+    width: 7vw;
+    height: 2.5vw;
+    padding: 0.3vw 0.3vw;
+    position: absolute;
+    top: 35vw;
+    left:48vw;
+    color: rgb(15, 15, 15);
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s all;
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    border-radius: 5vw;
+}
+
+.scroll-btn:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: 1px solid white;
+}
+.scroll-btn:hover .scrolla{
+    color: rgb(255, 255, 255);
+}
+.scroll-btn:active .scrolla{
+    color: rgb(0, 0, 0);
+}
+.scroll-btn:active{
+    color: rgb(0, 0, 0);  
+    background-color: rgb(250, 250, 250);
+
+}
