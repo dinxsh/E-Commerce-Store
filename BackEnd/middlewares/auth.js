@@ -3,8 +3,7 @@ const user = require('../Models/userModel');
 
 
 const isAuthenticated =  async(req,res,next)=> {
-    const {token} = req.cookies;
-    
+    const {token} = req.cookies; 
     if(!token){
         return res.json({
             sucess:false,
@@ -12,8 +11,8 @@ const isAuthenticated =  async(req,res,next)=> {
         })
     }
     const Decode = jwt.verify(token,process.env.JWT_KEY)
-    req.user = await user.findById(Decode.id)
-    next();
+    req.user = await user.findById(Decode.id) 
+    next(); 
 }
 
 const admin = (...roles)=>{

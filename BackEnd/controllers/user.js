@@ -20,7 +20,7 @@ const Register = async (req,res)=>{
             public_id:"This is a sample id",
             url:"this is a sample url "
         }
-    });
+    }); 
     sendCookie_Token(user,201,res)
 }; 
 
@@ -231,7 +231,7 @@ const getUser = async(req,res)=>{
         new:true,
         runValidator:true,
         useFindAndModify: false
-    });
+    }); 
     res.json({
         sucess:true,
         message:"User Profile has been updated"

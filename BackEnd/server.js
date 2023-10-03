@@ -7,17 +7,17 @@ process.on("uncaughtException",(err)=>{
     process.exit(1)
 })
 
-config({path:'./ok.env'}) 
+config({path:'BackEnd/config/config.env'}) 
 
 
 const server = app.listen(process.env.PORT,()=>{
     console.log(`Server has started on PORT ${process.env.PORT}`)
 })
-
+ 
 // Unhandled Promise Rejections
 process.on("unhandledRejection",(err)=>{
     console.log(err.message)
     server.close(()=>{
         process.exit(1);
     });
-})
+}) 

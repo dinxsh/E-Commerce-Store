@@ -8,7 +8,7 @@ const sendEmail = async (options)=>{
        service:process.env.SERVICE,
         auth:{
             user:process.env.MAIL_ID,
-            pass:process.env.PASSWORD
+            pass:process.env.PASSWORD 
         }
     })
     const mailOptions = {

@@ -1,18 +1,20 @@
 const express = require('express');
 const cookie = require('cookie-parser')
 const app = express()
+const cors = require('cors')
+
 
 app.use(express.json())
 app.use(cookie())
+app.use(cors({credentials: true, origin: "*"}));
 
-const connectingDB = require('./database/database.js')
+const connectingDB = require('./database/database.js') 
 
-connectingDB()
-
+connectingDB() 
 //Router imports
 const product = require('./routes/products.js')
 const user = require('./routes/user.js')
-const order = require('./routes/order.js')
+const order = require('./routes/order.js') 
 
 app.use("/",product);
 app.use('/',user)

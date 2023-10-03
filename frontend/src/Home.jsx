@@ -1,28 +1,35 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import "./Home.css"
 import cover from './assets/cover2.png'
 import { CgMouse} from 'react-icons/all'
 import Product from './Product.jsx'
 import product1 from './assets/img1.jpg'
 import MetaData from './MetaData' 
-import actionProduct from "./actions/productAction";
+import actionProduct, { clearErrors } from "./actions/productAction";
 import { useSelector , useDispatch} from 'react-redux'
+import Loader from "../Loader";
+import { useAlert } from "react-alert";
 
-const product = {
-    name:"Blue Tshirt",
-    images:[{url:product1}],
-    price:"$30",
-    _id:"abhishek"
-}
-export default function Home(){
+
+export default function Home(){ 
     const dispatch = useDispatch();
+    const alert = useAlert()
+
+    const {loading, error, products, productCount}  = useSelector((state)=> state.products)
 
     useEffect(()=>{
+        if(error){
+            dispatch(clearErrors())
+             alert.error(error)
+        }
         dispatch(actionProduct());
-    },[dispatch])
+    },[dispatch,error, error, alert])
 
     return (
         <>
+        {loading? <Loader/> :
+        < >
+        <div className="fragment">
         <MetaData title="My Store" />
         <div className="Home">
             <div className="cover"></div>
@@ -37,16 +44,13 @@ export default function Home(){
             <h2>Featured Products</h2>
             </div>
             <div className="container">
-            <Product product={product}></Product>
-            <Product product={product}></Product>
-            <Product product={product}></Product>
-            <Product product={product}></Product>
-            <Product product={product}></Product>
-            <Product product={product}></Product>
-            <Product product={product}></Product>
-            <Product product={product}></Product>
+            {products && products.map(product=>(
+                <Product key={product._id} product={product} ></Product>
+            ))}
             </div>
-            
+            </div>
+        </>
+        }        
         </>
     )
 }

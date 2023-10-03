@@ -12,7 +12,7 @@ router.post('/addProducts',isAuthenticated,admin("admin"),createProduct)
 router.route("/product/:id")
 .put(isAuthenticated,admin("admin"),updateProduct)
 .delete(isAuthenticated,admin("admin"),DeleteProduct)
-.get(isAuthenticated,getProduct) 
+.get(getProduct) 
  
 router.route("/review").put(isAuthenticated,Review) 
 

@@ -7,7 +7,7 @@ const sendCookie_Token = (user,status,res)=>{
     const options = {
             httpOnly:true,
             expires: new Date(Date.now() * 50)      
-    }
+    } 
 
     res.status(status).cookie('token',token,options).json({
         sucess:true,
@@ -15,4 +15,4 @@ const sendCookie_Token = (user,status,res)=>{
     })
 }
 
-module.exports = sendCookie_Token
+module.exports = sendCookie_Token  

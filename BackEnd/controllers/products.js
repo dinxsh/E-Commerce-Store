@@ -39,7 +39,8 @@ const getAllProducts = async (req, res) => {
     res.status(200).json({
         sucess: true,
         data,
-        productCount
+        productCount,
+        resultsPerPage
     })
 }
 
@@ -93,17 +94,12 @@ const Review = async(req,res)=>{
         comment,
     }
     const product = await Product.findById(productID)
-    console.log(req.user._id)
-    const isReviewed = product.reviews.find((data) => data.user.toString() === req.user._id.toString())
-    if (isReviewed) {
-        product.reviews.forEach((data)=>{
-            if (data.user.toString() === req.user._id.toString()) {
-                product.reviews.forEach((data) => {
-                    data.rating = rating,
-                    data.comment = comment                      
-                })
-            }   
-        })
+    
+    const existingReviewIndex = product.reviews.findIndex(
+        (data) => data.user._id.toString() === req.user._id.toString()
+      );
+    if (existingReviewIndex !== -1) {
+        product.reviews[existingReviewIndex] = review;
     }
     else {
         product.reviews.push(review);

@@ -1,6 +1,6 @@
 
 .scrolla{
-    padding: 1vw 2.8vw;
+    /* padding: 1vw 2.8vw; */
     transition: 0.4s all;
     text-decoration: none;
     color: rgb(12, 12, 12);
@@ -24,32 +24,46 @@
     margin-top: 4vw;
 }
 
+.product1{
+    /* border: 1px solid ; */
+    width: 20vmax;
+    margin-top: 2vmax;
+}
+
 .productCard{
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: rgb(49, 49, 49);
     border: 1px solid;
-    height: 25vw;
+    min-height: 25vw;
     width: 24vw;
     margin: auto;
+    margin: 0 1vmax;
     margin-top: 2vw;
     transition: 0.4s all;
     font-family: 'Alfa Slab One', cursive;
     font-family: 'Kumbh Sans', sans-serif;
+    overflow: hidden;
 }
 
 .productCard > img{
     padding-top: 1.5vw;
     margin: auto;
+    margin-top: 2vmax;
+    width: 90%;
+    
 }
 
 .productCard > p  {
     padding-left: 2vw;
+    font-size: 1.2vmax;
+
 }
 .productCard > span{
     padding: 2vw;
     color: tomato;
+    font-size: 1.3vmax;
 }
 .productCard:hover{
     box-shadow: 2px 2px 7px ;
@@ -63,7 +77,9 @@
     margin: 0 1.4vw;
 
 }
-
-.product1{
-    width: 20vw;
+.productCard > div > span  {
+    font-size: 1.2vmax;
 }
+
+
+

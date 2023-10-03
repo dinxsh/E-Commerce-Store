@@ -1,0 +1,254 @@
+.ProductDetails{
+    position: relative;
+    width: 100%;
+    margin: 2vmax 7vmax;
+    margin-top: 8vmax;
+    padding:  1vmax 0 ;
+    right: 10vmax;
+    display: flex;
+
+    justify-content: center;
+    gap: 16vmax;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.CarouselImage{
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    width: 25vmax;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 20vmax;
+    padding-top: 5vmax;
+    /* height: 100%; */
+    object-fit: contain;
+    padding-left: 3vmax;
+}
+
+/* box1 container */
+.css-ohwg9z{
+    overflow: hidden;
+    /* border: 1px solid black; */
+    padding: 3.0vmax;
+    margin-top: 4vmax;
+    margin: auto;
+    width: 24vmax;
+    height: 27vmax;
+    border-radius: 1vmax;
+
+
+}
+
+/* carousel dot */
+.css-1m9128y{
+    padding-top: 6vmax;
+    margin-top: 2vmax;
+    border-radius: 1vmax;
+
+}
+
+.box1{
+    /* border: 1px solid black; */
+    width: 24vmax;
+    height: 25vmax;
+}
+
+.box2{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 3.5vmax;
+    border-radius: 1vmax;
+    align-items: flex-start;
+    /* padding-top: 1.5vmax; */
+    padding-left: 2.5vmax;
+}
+
+.detailsb-1 > p {
+    font-size: 0.7vmax;
+}
+.name{
+    font-size: 2vmax;
+}
+
+.detailsBlock-2{
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailsBlock-2 > span {
+    font-size: 1vmax;
+}
+
+.detailsblock-3-1 {
+    display: flex;
+    justify-content:space-around;
+}
+.detailsblock-3-1-1 {
+    padding-top: 0.2vmax;
+}
+
+.detailsBlock-2 > span {
+    text-align: center;
+    padding-top: 0.7vmax;
+}
+
+.detailsblock-3-1-1 > input {
+    text-align: center;
+    width: 3vmax;
+    padding: 0.2vmax;
+}
+
+.detailsblock-3-1-1 > button {
+    padding: 0.2vmax 0.9vmax;
+}
+.detailsblock-3-1-1 > button :active{
+    background-color: tomato;
+}
+
+.addtocart , .detailsblock-4 > button {
+    display: flex;
+    justify-content: center;
+    margin-left: 2.6vmax;
+    padding: 0.6vmax 1.4vmax ;
+    font-size: 0.9vmax;
+    background-color: tomato;   
+    border: none;
+    cursor: pointer;
+    color: aliceblue;
+    border-radius: 1vmax;
+    align-content: center;
+
+}
+
+.addtocart:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(180, 57, 36);
+}
+.addtocart:active{
+    color: rgb(255, 255, 255);
+    background-color: tomato;   
+
+}
+
+.redColor{
+    color: red;
+}
+.greenColor{
+    color: greenyellow;
+}
+
+hr{
+    opacity: 50%;
+    margin-top: 1.5vmax;
+}
+
+.submit-review:hover{
+    transition: 0.4s all;
+    transform: scale(1.1);
+}
+
+.detailsblock-4 > button :hover{
+    transform: scale(1.2);
+    color: aqua;
+}
+
+.detailsblock-4 > div {
+    font-size: 1vmax;
+    padding: 0.7vmax;
+    padding-left: 0%;
+    padding-bottom: 1.6vmax;
+    color: rgba(61, 61, 61, 0.842);
+}
+
+.review-container{
+    flex: none;
+    flex-wrap: wrap;
+    display: flex;
+    border: 1px solid;
+    margin: 1vmax;
+    padding: 1vmax;
+    gap: 1vmax;
+    overflow: auto;
+
+}
+
+.review-card{
+    font-size: 1vmax;
+    font-family: Roboto;
+    padding: 1vmax;
+    border-radius: 1vmax;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+}
+
+.sub-heading{
+    margin: auto;
+    width: 9vmax;
+    padding-bottom: 0.6vmax;
+    padding-top: 0.6vmax;
+    margin-bottom: 2vmax ;
+    border-bottom: 1px solid rgba(14, 14, 14, 0.247) ;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.userpfp{
+    width: 5vmax;
+}
+
+.no-review{
+    text-align: center;
+    margin: auto;
+    font-family: cursive;
+
+}
+
+@media screen and (max-width:600px){
+    .ProductDetails{
+        display: flex;
+        flex-direction: column;
+        height: unset;
+        max-width: 100%;
+    }
+    .box1, .box2{
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .box2{
+        /* margin-left: 29vmax; */
+        padding: 5vmax;
+    }
+    .css-ohwg9z{
+        width: 35vmax;
+    }
+    .detailsBlock-2 > span {
+        font-size: 1.5vmax;
+    }
+    .detailsb-1 > p {
+        font-size: 1.5vmax;
+    }
+    .name{
+        font-size: 3.3vmax;
+    }
+    .detailsblock-4 > div {
+        font-size: 1.6vmax;
+    }
+    .detailsblock-3 > h1 {
+        font-size: 3.2vmax;
+    }
+    .addtocart{
+        text-align: center;
+        font-size: 1.4vmax;
+        padding-top: 1.3vmax;
+    }
+    .detailsblock-4 > button {
+        text-align: center;
+        font-size: 1.4vmax;
+        padding-top: 1vmax;
+    }
+    .css-ohwg9z{
+        position: absolute;
+        left: -35%;
+        margin: auto;
+        margin-right: 5vmax;
+    }
+}

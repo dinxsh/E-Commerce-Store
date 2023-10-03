@@ -1,9 +1,16 @@
 *{
     scroll-behavior: smooth;
+    padding: 0;
+    /* margin: 0; */
+}
+
+.Fragment{
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 .Home{
-    height: 100vh;
+    /* height: 100vh; */
     overflow: hidden;
     
 }
@@ -16,11 +23,13 @@
     opacity: 100%;
     background-color: black;
     border: 1px solid black;
-    height: 80vh;
+    height: 556px;
     color: white;
     clip-path: polygon(0 40%, 0 4%, 48% 4%, 86% 99%, 27% 100%);
 
 }
+
+
 
 .Home-text{
     font-family: 'Alfa Slab One', cursive;
@@ -44,9 +53,7 @@
 }
 
 .scroll-btn{
-    width: 7vw;
-    height: 2.5vw;
-    padding: 0.3vw 0.3vw;
+    padding: 0.5vw 0vw;
     position: absolute;
     top: 35vw;
     left:48vw;
@@ -56,7 +63,9 @@
     border: 1px solid rgba(0, 0, 0, 0.363);
     border-radius: 5vw;
 }
-
+.scrolla{
+    padding: 0.5vw 3vw;
+}
 .scroll-btn:hover{
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
@@ -72,4 +81,54 @@
     color: rgb(0, 0, 0);  
     background-color: rgb(250, 250, 250);
 
+}
+
+@media screen and (max-width: 768px) {
+    .cover {
+        margin-top: 6vmax; 
+        height: 406px;
+        padding: 20px; /* Add padding for better mobile readability */
+    }
+}
+@media screen and (max-width: 588px) {
+    .cover {
+        margin-top: 6vmax; 
+        height: 266px;
+        padding: 20px; /* Add padding for better mobile readability */
+    }
+}
+@media screen and (max-width: 500px) {
+    .Home-text > h1{
+    position: absolute;
+    top: 13vw;
+    left: 7vw;
+    }
+    .Home-text > h3{
+        position: absolute;
+        font-size: 3vw;
+        top: 31vw;
+        left:24vw
+    }
+    .scroll-btn{
+        position: absolute;
+       top: 42vw;
+       }
+}
+
+@media screen and (min-width: 1799px) {
+    .Home-text > h1{
+        position: absolute;
+        top: 6vw;
+        left: 7vw;
+        }
+        .Home-text > h3{
+            position: absolute;
+            font-size: 3vw;
+            top: 22vw;
+            left:24vw
+        }
+        .scroll-btn{
+            position: absolute;
+           top: 32vw;
+           }
 }

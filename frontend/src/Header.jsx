@@ -25,6 +25,8 @@ return ( <>
         link1Color="black"
         link1Text="Home"
         link2Text="Products"
+        link1Url = "/"
+        link2Url = "/products"
         link3Text="About Us"
         link4Text="Contact Us"
         link1Size ="17px"
