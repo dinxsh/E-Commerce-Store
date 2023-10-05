@@ -1,0 +1,198 @@
+.BAAP-CONTAINER{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(235, 235, 235);
+    margin-top: 7.2vmax;
+    padding-top: 3.5vmax;
+
+}
+
+.Form-Container{
+    border-radius: 1vmax;
+    max-width: 35%;
+    height: 83vh;
+    max-height: 100%;
+    margin: auto;
+    margin-top: 2vmax;
+    background-color: white;
+    overflow: hidden;
+    /* border: 2px solid; */
+}
+
+
+.LoginSignUpBox > div{
+    cursor: pointer;
+    display: flex;
+    transition: 0.4s all;
+}
+
+.LoginSignUpBox > div >div {
+    padding: 1.5vmax 6vmax;    
+}
+
+.LoginSignUpBox{
+    font-size: 1.5vmax;
+    margin: auto;
+    /* border: 1px solid red; */
+    /* margin-top: vmax; */
+    height: 5vmax;
+    font-family: sans-serif;
+
+}
+
+.switcher{
+    border: 1px solid;
+    position: absolute;
+    margin: 0  auto;
+    width: 17vmax;
+    height: 5px;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background-color: tomato;
+}
+
+.loginform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.loginEmail, .loginPassword ,.signupname  {
+    margin: 1.2vmax  auto;
+}
+
+.loginEmail{
+    padding-top: 5vmax;
+}
+
+
+.loginEmail >input, .loginPassword > input , .signupEmail > input {
+    margin: auto;
+    width: 18vmax;
+    padding: 1.7vmax;
+    padding-left: 2vmax; 
+    border: 1px solid rgba(0, 0, 0, 0.171);
+}
+
+.signupname > input{
+    margin: auto;
+    width: 18vmax;
+    padding: 1.7vmax;
+
+    padding-left: 2vmax; 
+    border: 1px solid rgba(0, 0, 0, 0.171);
+}
+
+.loginEmail > input :active{
+    outline: 1px solid tomato ;
+}
+
+
+.icons1{
+    position: relative;
+    top: 0.3vmax;
+    left: 1.7vmax
+}
+
+.icons2{
+    position: relative;
+     top: 0.3vmax;
+    left: 1.8vmax;
+    }
+
+
+.forgetPass{
+    margin: auto;
+    margin-left: 21.3vmax;
+    padding: 1vmax 0 ;
+    padding-top: 0;
+    font-size: 0.9vmax;
+    text-decoration: none;
+    color: tomato;
+    font-family: sans-serif;
+}
+
+.LoginBtn , .signUpBtn{
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.274);
+    border-radius: 0.4vmax;
+    background-color: tomato;
+    font-size: 1.1vmax;
+    color: aliceblue;
+    margin: auto;
+    padding: 1.5vmax 9.4vmax ; 
+    cursor: pointer;
+    /* padding-right: 11vmax; */
+    transition: 0.4s all;
+    margin-bottom: 2vmax;
+}
+
+.LoginBtn:hover{
+    transform: scale(1.1);
+}
+
+.shiftToleft{
+    transition: 0.5s all;
+    transform: translateX(-100%);
+}
+
+.shiftToNeutal{
+    transition: 0.5s all;
+    transform: translateX(0%);
+}
+
+.shiftToNeutalForm{
+    transition: 0.5s all;
+    transform: translateX(0%) translateY(-165%);
+}
+
+.shiftToRight{
+    transform: translateX(100%);
+    transition: 0.5s all;
+}
+
+.signupBox{
+    margin: 0 auto;
+    margin-top: 13.9vmax;
+    height: 22vmax;
+    text-align: center;
+}
+
+.filename{
+    display: flex;
+    padding-top: 1vmax;
+    padding-left: 2vmax;
+    padding: 0;
+    background-color: white;
+    font-size: 0.8vmax;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.filename > input[type="file"]{
+    background-color: white;
+    padding: 1vmax;
+    padding-bottom: 0vmax;
+}
+
+
+.choose-file{
+    text-align: center;
+    border: 1px solid black;
+    padding-top: 1vmax;
+    display: flex;
+    justify-content: center;
+}
+
+.pfp{
+    width: 3vmax;
+}
+
+.choose-file > input ::-webkit-file-upload-button{
+  cursor: pointer;  
+  color: red;
+}

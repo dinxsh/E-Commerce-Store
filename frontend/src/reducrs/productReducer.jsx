@@ -2,10 +2,9 @@ import {
     All_PRODUCT_FAIL,
     All_PRODUCT_REQUEST,
     All_PRODUCT_SUCCESS,
-    PRODUCT_DETAILS_FAIL,
+    PRODUCT_DETAILS_FAIL, 
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_REQUEST,
-
     CLEAR_ERRORS 
 } from '../constants/productConstans.jsx'
 

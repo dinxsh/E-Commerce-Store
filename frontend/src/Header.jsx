@@ -12,6 +12,7 @@ return ( <>
         <div className='hr'></div>
         <ReactNavbar
         profileIcon={true}
+        profileIconUrl="/login"
         ProfileIconElement = {FaUserAlt}
         searchIcon ={true}
         SearchIconElement = {FaSearch}
@@ -19,19 +20,20 @@ return ( <>
         CartIconElement = {FaShoppingCart}
         logo={LOGO}
         link1Margin="2rem"
-        link2Margin="2rem"
-        link3Margin="2rem"
-        link4Margin="2rem"
+        link2Margin="5rem"
+        link3Margin="5rem"
+        link4Margin="4rem"
         link1Color="black"
         link1Text="Home"
+        link1ColorHover="crimson"
         link2Text="Products"
         link1Url = "/"
         link2Url = "/products"
-        link3Text="About Us"
-        link4Text="Contact Us"
-        link1Size ="17px"
-        link1Family="Arial"
-        navColor1="#DADADA"
+        link3Text="About "
+        link4Text="Contact "
+        link1Size ="1.4vmax"
+        link1Family="Sans-serif"
+        navColor1="rgb(230,230,230)"
         searchIconMargin="0.5vmax"
         cartIconMargin="1vmax"
         profileIconMargin="0.5vmax"

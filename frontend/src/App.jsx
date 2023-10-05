@@ -7,6 +7,7 @@ import Loader from '../Loader.jsx'
 import ProductDetails from './ProductDetails.jsx'
 import Products from './Products.jsx'
 import Search from './Search.jsx'
+import Login from './Login.jsx'
 
 function App() {
   return ( 
@@ -18,6 +19,8 @@ function App() {
     <Route  exact path='/products' component={Products } /> 
     <Route  path='/products/:keyword' component={Products } /> 
     <Route  exact path='/Search' component={Search } /> 
+    <Route  exact path='/Login' component={Login } /> 
+
 
     <Footer/>
     </Router>

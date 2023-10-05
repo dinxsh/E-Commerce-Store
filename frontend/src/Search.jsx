@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Search.css'
 import {FaSearch } from "react-icons/fa"
-
+import MetaData from "./MetaData";
 
 export default function Search( {history}){
     const [keyword, setKeyword] = useState("");
@@ -17,6 +17,7 @@ export default function Search( {history}){
 
     return (
         <>
+        <MetaData title="Search " />
         <form onSubmit={searchSubmitHandler} className="searchBox" >
         <input type="text"
             placeholder="Search Product ..."

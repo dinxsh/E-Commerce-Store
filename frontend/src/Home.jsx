@@ -2,8 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import "./Home.css"
 import cover from './assets/cover2.png'
 import { CgMouse} from 'react-icons/all'
-import Product from './Product.jsx'
-import product1 from './assets/img1.jpg'
+import Product from './ProductCard'
 import MetaData from './MetaData' 
 import actionProduct, { clearErrors } from "./actions/productAction";
 import { useSelector , useDispatch} from 'react-redux'
@@ -15,7 +14,7 @@ export default function Home(){
     const dispatch = useDispatch();
     const alert = useAlert()
 
-    const {loading, error, products, productCount}  = useSelector((state)=> state.products)
+    const {loading, error, products}  = useSelector((state)=> state.products)
 
     useEffect(()=>{
         if(error){

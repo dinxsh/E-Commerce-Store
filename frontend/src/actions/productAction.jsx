@@ -10,14 +10,20 @@ import {
 
 import axios from 'axios'
 
-const actionProduct = (keyword="", currentPage=1, ) => async (dispatch) => {
+const actionProduct = (keyword="", currentPage=1, price=[0,25000], category ,rating=0) => async (dispatch) => {
     try {
         dispatch({
             type:All_PRODUCT_REQUEST
         });
-        const {data} = await axios.get(`http://192.168.1.10:5000/products?keyword=${keyword}&page=${currentPage}`); 
-        // ?keyword=${keyword}
-        // &price[$gte]=${price[0]}&price[$lte]=${price[1]} price=[0,25000]
+
+        let link  = `http://192.168.1.10:5000/products?keyword=${keyword}&page=${currentPage}&price[$gte]=${price[0]}&price[$lte]=${price[1]}&ratings[$gte]=${rating}`
+
+        
+        if(category){
+            link = `http://192.168.1.10:5000/products?keyword=${keyword}&page=${currentPage}&price[$gte]=${price[0]}&price[$lte]=${price[1]}&category=${category}&ratings[$gte]=${rating}`
+        }
+        const {data} = await axios.get(link); 
+        
         dispatch({
             type:All_PRODUCT_SUCCESS,
             payload:data
@@ -42,8 +48,8 @@ export const getProductDetails = (id) => async (dispatch) => {
         })
     } catch (error) {
         dispatch({ 
-            type:PRODUCT_DETAILS_FAIL,
-            payload: error.response
+            type:PRODUCT_DETAILS_FAIL, 
+            payload: error.response.data.message
         })
     }
 }

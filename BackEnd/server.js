@@ -1,5 +1,7 @@
 const { config } = require('dotenv')
 const {app} = require('./app')
+const cloudinary = require('cloudinary')
+
 
 // HANDLING uncaught exception
 process.on("uncaughtException",(err)=>{
@@ -8,7 +10,11 @@ process.on("uncaughtException",(err)=>{
 })
 
 config({path:'BackEnd/config/config.env'}) 
-
+cloudinary.config({
+    cloud_name:process.env.CLOUDINARY_NAME,
+    clour_key:process.env.CLOUD_KEY,
+    cloud_secret: process.env.CLOUDINARY_SECRET
+})
 
 const server = app.listen(process.env.PORT,()=>{
     console.log(`Server has started on PORT ${process.env.PORT}`)

@@ -4,8 +4,16 @@ const jwt = require('jsonwebtoken');
 const sendCookie_Token = require('../utils/jwtToken');
 const sendEmail  = require('../utils/sendEmail.js')
 const crypto = require('crypto')
+const cloudinary = require('cloudinary')
 
 const Register = async (req,res)=>{
+
+    const myCloud =  await cloudinary.v2.uploader.upload(req.body.avatar,{
+        folder:'avatars',
+        crop:'scale',
+        width:150
+    })
+
     const {name,email,password} = req.body
     const existinguser = await User.findOne({email})
     if(existinguser){
@@ -17,8 +25,8 @@ const Register = async (req,res)=>{
         email,
         password:HashedPassword,
         avatar:{
-            public_id:"This is a sample id",
-            url:"this is a sample url "
+            public_id:myCloud.public_id,
+            url:myCloud.secure_url
         }
     }); 
     sendCookie_Token(user,201,res)
@@ -27,20 +35,20 @@ const Register = async (req,res)=>{
 const login = async (req,res)=>{
     const {email,password} = req.body
     if(!email){
-        return res.json({
+        return res.status(401).json({
             sucess:false,
             message:"Please provide email"
         })
     }
     if(!password){
-        return res.json({
+        return res.status(401).json({
             sucess:false,
             message:"Please provide password"
         })
     }
     const user = await User.findOne({email}).select('+password')
     if(!user){
-        return res.json({
+        return res.status(401).json({
             sucess:false,
             message:"User doesn't exist"
         })
@@ -48,7 +56,7 @@ const login = async (req,res)=>{
     const isPasswordMatched = await bcrypt.compare(password,user.password)
 
     if(!isPasswordMatched){
-        return res.json({
+        return res.status(401).json({
             sucess:false,
             message:"Password do not match"
         })

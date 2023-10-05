@@ -7,6 +7,7 @@ import './ProductDetials.css'
 import Review from './Review.jsx'
 import Loader from "../Loader";
 import { useAlert } from "react-alert";
+import MetaData from "./MetaData";
 
 
 
@@ -39,6 +40,7 @@ import { useAlert } from "react-alert";
     return <div>
            {loading? <Loader/> : 
            <>
+                <MetaData title = {` Product - ${product.name} `} />
             <div className="ProductDetails">
        
        <div className="box1" >
@@ -70,7 +72,7 @@ import { useAlert } from "react-alert";
            <div className="detailsblock-3-1">
                <div className="detailsblock-3-1-1">
                    <button>-</button>
-                   {/* <input value="1" /> */}
+                   <input value="1" />
                    <button>+</button>
                </div>
                <button className="addtocart"> Add to Cart</button>

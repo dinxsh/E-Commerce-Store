@@ -8,7 +8,6 @@ const sendCookie_Token = (user,status,res)=>{
             httpOnly:true,
             expires: new Date(Date.now() * 50)      
     } 
-
     res.status(status).cookie('token',token,options).json({
         sucess:true,
         user
