@@ -92,6 +92,7 @@ const { loading, error ,isAuthenticated } = useSelector((state)=>state.user)
         myForm.set("email",email)
         myForm.set("password",password)
         myForm.set("avatar",avatar)
+        dispatch(registerUser(myForm))
     }
 
 

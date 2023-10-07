@@ -35,7 +35,7 @@ const UserOptions = ({user}) => {
   const options = [
     {icon: <Person/> , name:"Person" , func: account},
     {icon: <ListAlt /> , name:"List", func:List },
-    { icon: <ExitToApp/>, nane:"Exit", func: Logout  }
+    { icon: <ExitToApp/>, name:"Exit", func: Logout  }
   ]
   if(user.role==="admin"){
     options.unshift({
@@ -56,7 +56,7 @@ const UserOptions = ({user}) => {
       icon={
         <img
         className='speed-dial-icon'
-        src={user.avatar.url? user.avatar.url : PFP}
+        src={user.avatar[0].url? user.avatar[0].url : PFP}
         />
       }
       >  

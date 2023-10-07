@@ -14,15 +14,13 @@ import MetaData from "./MetaData";
  const ProductDetails = ({match}) =>{
     const dispatch = useDispatch();
     const alert = useAlert()
-
     const [state, setState] = useState(false)
     let   {product,error,loading} = useSelector(state=>state.productDetails)
     const [ratings, setRatings] = useState()
 
     const options = {
-        edit:true,
-        color:"rgba(20,20,20,0.1)",
-
+        edit:false,
+        color2:"#fc6f03" , 
         size: window.innerWidth < 600 ? 20 : 25,
         value:product.ratings,
         isHalf:true,
@@ -72,7 +70,9 @@ import MetaData from "./MetaData";
            <p> Product # {product._id} </p>
        </div>
        <div className="detailsBlock-2" >
-           <ReactStars onChange={()=> setRatings(product.ratings)}  {...options} />
+           <ReactStars 
+           color2={'#fffff'}
+           onChange={()=> setRatings(product.ratings)}  {...options} />
            <span> ({product.numofReviews}) Num of Reviews </span>                     
        </div>
        <hr></hr>

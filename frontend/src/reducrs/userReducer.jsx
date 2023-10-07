@@ -21,7 +21,6 @@ export const UserReducers = ( state ={user: {}}, action ) =>{
         return{
             loading:true,
             isAuthenticated:false,
-            user:[]
         }
         case ALL_USER_SUCCESS:
         case LOAD_USER_SUCCESS:

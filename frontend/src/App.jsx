@@ -16,19 +16,19 @@ import UserOptions from './UserOptions.jsx'
 import store from "./store";
 
 function App() {
-
+  
+  
   const {loading, isAuthenticated ,user } = useSelector((state)=> state.user)
-
-
   useEffect(()=>{
-    store.dispatch(loadUser());
-  },[])
+    // store.dispatch(loadUser());
+  },[isAuthenticated])
+  
 
   return ( 
     <>
     <Router>
     <Header />
-    {isAuthenticated && <UserOptions user={user}/> }
+    {/* {isAuthenticated && <UserOptions user={user}/> } */}
     <Route exact path='/' component={Home} /> 
     <Route  exact path='/product/:id' component={ProductDetails } /> 
     <Route  exact path='/products' component={Products } /> 

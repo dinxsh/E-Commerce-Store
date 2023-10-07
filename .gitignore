@@ -1,3 +1,5 @@
 node_modules
 
-ok.env
+/BackEnd/config/config.env
+
+

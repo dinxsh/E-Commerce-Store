@@ -75,12 +75,6 @@ export const registerUser = (myForm) => async(dispatch)=>{
 }
 
 export const loadUser = ()=>async(dispatch)=>{
-
-    const config = {
-        headers:{"Content-Type":"application/json"},
-        withCredentials: true,
-        httpOnly:true}
-
     try {
     dispatch({
         type:LOAD_USER_REQUEST
