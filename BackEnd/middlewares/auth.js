@@ -5,7 +5,7 @@ const user = require('../Models/userModel');
 const isAuthenticated =  async(req,res,next)=> {
     const {token} = req.cookies; 
     if(!token){
-        return res.json({
+        return res.status(401).json({
             sucess:false,
             message:"Please login to access this resource"
         })
@@ -18,7 +18,7 @@ const isAuthenticated =  async(req,res,next)=> {
 const admin = (...roles)=>{
     return (req,res,next) => {
         if(!roles.includes(req.user.role)){
-            res.json({
+            res.status(401).json({
                 sucess:false,
                 message:`Role: ${req.user.role} is not allowed to access this resource`
             })

@@ -7,29 +7,34 @@ const crypto = require('crypto')
 const cloudinary = require('cloudinary')
 
 const Register = async (req,res)=>{
-
-    const myCloud =  await cloudinary.v2.uploader.upload(req.body.avatar,{
-        folder:'avatars',
-        crop:'scale',
-        width:150
-    })
-
-    const {name,email,password} = req.body
-    const existinguser = await User.findOne({email})
-    if(existinguser){
-        return res.status(400).json({ error: 'User already exist' });
-    }
-    const HashedPassword = await bcrypt.hash(password,10)
-    const user = await User.create({
-        name,
-        email,
-        password:HashedPassword,
-        avatar:{
-            public_id:myCloud.public_id,
-            url:myCloud.secure_url
+    try {
+        const myCloud =  await cloudinary.v2.uploader.upload(req.body.avatar,{
+            folder:'avatars',
+            crop:'scale',
+            width:150
+        })
+    
+        const {name,email,password} = req.body
+        const existinguser = await User.findOne({email})
+        if(existinguser){
+            return res.status(400).json({ error: 'User already exist' });
         }
-    }); 
-    sendCookie_Token(user,201,res)
+        const HashedPassword = await bcrypt.hash(password,10)
+        const user = await User.create({
+            name,
+            email,
+            password:HashedPassword,
+            avatar:{
+                public_id:myCloud.public_id,
+                url:myCloud.secure_url
+            }
+        }); 
+        sendCookie_Token(user,201,res)
+    } catch (error) {
+        res.status(401).json({
+            message:error
+        })
+    }
 }; 
 
 const login = async (req,res)=>{
@@ -140,6 +145,11 @@ const resetPassword = async(req,res)=>{
 //gets user details
 const getUserDetails = async(req,res) =>{
     const user = await User.findById(req.user.id)
+    if(!user){
+        res.status(401).json({
+            sucess:false,
+        })
+    }
     res.status(200).json({
         sucess:true,
         user

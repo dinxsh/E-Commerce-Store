@@ -5,8 +5,9 @@ const sendCookie_Token = (user,status,res)=>{
         expiresIn:process.env.JWT_EXPIRE,
     })
     const options = {
-            httpOnly:true,
-            expires: new Date(Date.now() * 50)      
+        httpOnly:true,
+        expires: new Date(Date.now() * 50) ,
+             
     } 
     res.status(status).cookie('token',token,options).json({
         sucess:true,

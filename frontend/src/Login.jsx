@@ -10,6 +10,7 @@ import {
     userAction,
     registerUser,
     clearErrors,
+    loadUser,
   }  from './actions/userAction'
 import { useAlert } from 'react-alert'
 import Loader from '../Loader'
@@ -59,7 +60,9 @@ const { loading, error ,isAuthenticated } = useSelector((state)=>state.user)
 
     const submitHandler = (e)=>{
         e.preventDefault()
-        dispatch(userAction(loginEmail,loginPassword))
+            dispatch(userAction(loginEmail,loginPassword))
+            alert.success("Logged IN Successfully")
+            dispatch(loadUser())
     }
 
     
@@ -89,8 +92,6 @@ const { loading, error ,isAuthenticated } = useSelector((state)=>state.user)
         myForm.set("email",email)
         myForm.set("password",password)
         myForm.set("avatar",avatar)
-
-        dispatch( registerUser(myForm) )
     }
 
 

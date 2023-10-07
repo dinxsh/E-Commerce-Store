@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProductDetails } from "./actions/productAction";
-import ReactStars from 'react-rating-stars-component'
+import ReactStars from 'react-stars'
 import './ProductDetials.css'
 import Review from './Review.jsx'
 import Loader from "../Loader";
@@ -15,27 +15,35 @@ import MetaData from "./MetaData";
     const dispatch = useDispatch();
     const alert = useAlert()
 
-    let {product,error,loading} = useSelector(state=>state.productDetails)
+    const [state, setState] = useState(false)
+    let   {product,error,loading} = useSelector(state=>state.productDetails)
+    const [ratings, setRatings] = useState()
 
     const options = {
-        edit:false,
+        edit:true,
         color:"rgba(20,20,20,0.1)",
-        activeColor:"tomato",
+
         size: window.innerWidth < 600 ? 20 : 25,
         value:product.ratings,
         isHalf:true,
      
     }
-
-
     useEffect(()=>{
         if(error){
             alert.error(error)
             dispatch(clearErrors())
         }
-
         dispatch(getProductDetails(match.params.id))
-    },[dispatch,match.params.id, error, alert]);
+        window.scrollTo(0, 0);
+    },[dispatch,match.params.id, error, alert, state]);
+
+    
+    useEffect(() => {
+        if (product) {
+            setRatings(product.ratings);
+        }
+    }, [product,match.params.id]);
+
 
     return <div>
            {loading? <Loader/> : 
@@ -43,7 +51,9 @@ import MetaData from "./MetaData";
                 <MetaData title = {` Product - ${product.name} `} />
             <div className="ProductDetails">
        
-       <div className="box1" >
+       <div className="box1"
+        onClick={ ()=> setState(prevstate=> !prevstate)}   
+       >
    <Carousel>
        {product.images && product.images.map((image,index)=>
            <img 
@@ -62,7 +72,7 @@ import MetaData from "./MetaData";
            <p> Product # {product._id} </p>
        </div>
        <div className="detailsBlock-2" >
-           <ReactStars {...options} />
+           <ReactStars onChange={()=> setRatings(product.ratings)}  {...options} />
            <span> ({product.numofReviews}) Num of Reviews </span>                     
        </div>
        <hr></hr>
@@ -72,7 +82,7 @@ import MetaData from "./MetaData";
            <div className="detailsblock-3-1">
                <div className="detailsblock-3-1-1">
                    <button>-</button>
-                   <input value="1" />
+                   <input defaultValue={1} />
                    <button>+</button>
                </div>
                <button className="addtocart"> Add to Cart</button>

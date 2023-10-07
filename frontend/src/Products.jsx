@@ -80,7 +80,7 @@ const Products = ({match}) =>{
                         />
                    </div>
                    <ul className="categoryBox" >
-                   <Typography className="category-heading" ><b>Categories</b></Typography>
+                   <Typography className="category-heading" >Categories</Typography>
                         { 
                             categories.map((category)=>(
                                 <li

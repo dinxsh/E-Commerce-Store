@@ -10,10 +10,11 @@ process.on("uncaughtException",(err)=>{
 })
 
 config({path:'BackEnd/config/config.env'}) 
+
 cloudinary.config({
     cloud_name:process.env.CLOUDINARY_NAME,
-    clour_key:process.env.CLOUD_KEY,
-    cloud_secret: process.env.CLOUDINARY_SECRET
+    api_key:process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET
 })
 
 const server = app.listen(process.env.PORT,()=>{

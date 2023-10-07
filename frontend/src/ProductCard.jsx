@@ -21,7 +21,8 @@ export default function Product ({product}){
         <img className="product1" src={product.images[0].url} alt={product.name} ></img>
         <p>{product.name}</p>
         <div>
-        <ReactStars {...options} width="5vmax" classNames="stars"/> <span>{product.numofReviews } reviews</span>
+        <ReactStars {...options} width="5vmax" classNames="stars"/> 
+        <span>{product.numofReviews } reviews</span>
         </div>
         <span> {`₹ ${product.price}`} </span>
         </Link>

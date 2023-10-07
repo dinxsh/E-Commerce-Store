@@ -6,19 +6,29 @@ import {
     REG_USER_FAIL,
     REG_USER_REQUEST,
     REG_USER_SUCCESS,
+    LOAD_USER_REQUEST,
+    LOAD_USER_SUCCESS,
+    LOAD_USER_FAIL,
+    USER_LOGOUT_SUCCESS,
+    USER_LOGOUT_FAIL
 } from '../constants/userConstants'
 
 import axios from 'axios'
 
 export const userAction = (email,password)=>async(dispatch)=>{
 
-    const config = {headers:{"Content-Type":"application/json"}}
-
+    const config = {
+        headers:{"Content-Type":"application/json",
+        withCredentials: true,
+}}
+    
     try {
     dispatch({
         type:ALL_USER_REQUEST
     })     
-    const {data} =  await axios.post('http://192.168.1.10:5000/login', {email,password} ,config)    
+    const {data} =  await axios.post('http://192.168.1.10:5000/login',
+     {email,password} ,config
+     )    
     dispatch({
         type:ALL_USER_SUCCESS,
         payload: data
@@ -45,7 +55,11 @@ export const registerUser = (myForm) => async(dispatch)=>{
 
         const {data} = await axios.post('http://192.168.1.10:5000/register',
         myForm,
-        {headers:{"Content-Type":"multipart/form-data"}}
+        {
+            headers:{"Content-Type":"multipart/form-data"},
+            withCredentials: true,
+            httpOnly:true
+        }
         )
 
         dispatch({
@@ -60,5 +74,45 @@ export const registerUser = (myForm) => async(dispatch)=>{
     }
 }
 
+export const loadUser = ()=>async(dispatch)=>{
 
-//  default {userAction,registerUser}
+    const config = {
+        headers:{"Content-Type":"application/json"},
+        withCredentials: true,
+        httpOnly:true}
+
+    try {
+    dispatch({
+        type:LOAD_USER_REQUEST
+    })     
+    const {data} =  await axios.get('http://192.168.1.10:5000/Myprofile')   
+
+    dispatch({
+        type:LOAD_USER_SUCCESS,
+        payload: data
+    })
+
+    } catch (error) {
+        dispatch({
+            type:LOAD_USER_FAIL,
+            payload: error.response 
+        })
+    }
+}
+
+
+//Logout User
+
+export const logout = async(dispatch) =>{
+    try {
+        await axios.get('http://192.168.1.10:5000/logout')
+        dispatch({
+            type:USER_LOGOUT_SUCCESS
+        })
+    } catch (error) {
+        dispatch({
+           type: USER_LOGOUT_FAIL
+        })
+    }
+
+}

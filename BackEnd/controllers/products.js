@@ -17,6 +17,7 @@ const createProduct =  async (req,res,next) => {
 }
 //Fetch product details
 const getProduct = async(req,res)=>{
+   try {
     const data = await Product.findById(req.params.id)
     if(!data){
         return res.status(500).json({
@@ -28,6 +29,9 @@ const getProduct = async(req,res)=>{
         sucess:"true",
         data
     })
+   } catch (error) {
+    console.log(error)
+   }
 }
 
 // get all products + also search feature
